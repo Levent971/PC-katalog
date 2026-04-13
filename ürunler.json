@@ -1,0 +1,18 @@
+[
+    {
+        "id": 1,
+        "baslik": "i5 Oyun Sistemi 1",
+        "ozellikler": "Intel i5 İşlemci | 16GB RAM | Performans Ekran Kartı",
+        "fiyat": "Fiyat Giriniz",
+        "resim": "resim/i5sistem.jpg",
+        "link": "#"
+    },
+    {
+        "id": 2,
+        "baslik": "i5 Oyun Sistemi 2",
+        "ozellikler": "Intel i5 İşlemci | Güncel Donanım | Satışa Hazır",
+        "fiyat": "Fiyat Giriniz",
+        "resim": "resim/i5sistem2.jpg",
+        "link": "#"
+    }
+]
