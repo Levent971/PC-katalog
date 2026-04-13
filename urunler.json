@@ -3,7 +3,7 @@
         "id": 1,
         "baslik": "i5 Oyun Sistemi 1",
         "ozellikler": "Intel i5 İşlemci | 16GB RAM | Performans Ekran Kartı",
-        "fiyat": "33000",
+        "fiyat": "Fiyat Giriniz",
         "resimler": [
             "resim/i5sistem.jpg",
             "resim/i5sistem_ic.jpg"
@@ -17,9 +17,9 @@
         "fiyat": "12.500 TL",
         "resimler": [
             "resim/xeon.jpg",
-            "resim/xeon2.jpg",
+            "resim/xeon_detay1.jpg",
             "resim/xeon_detay2.jpg"
         ],
         "link": "https://www.sahibinden.com/ilan-linkin-2"
-    }
+    },
 ]
