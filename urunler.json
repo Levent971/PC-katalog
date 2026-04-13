@@ -8,11 +8,11 @@
         "link": "#"
     },
     {
-        "id": 2,
-        "baslik": "i5 Oyun Sistemi 2",
-        "ozellikler": "Intel i5 İşlemci | Güncel Donanım | Satışa Hazır",
-        "fiyat": "Fiyat Giriniz",
-        "resim": "resim/i5sistem2.jpg",
-        "link": "#"
-    }
+    "id": 3,
+    "baslik": "Xeon Güçlü İş İstasyonu",
+    "ozellikler": "Intel Xeon E5-2680 v4 | 32GB RAM | GTX 1050 Ti | 4K",
+    "fiyat": "12.500 TL",
+    "resim": "resim/i5sistem2.jpg",
+    "link": "https://www.sahibinden.com/ilan-linkin"
+}
 ]
