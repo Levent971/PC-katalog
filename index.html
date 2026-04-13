@@ -5,82 +5,184 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>💻 PC SHOWROOM ADANA</title>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f7f6; margin: 0; padding: 20px; }
-        .header { background-color: #2c3e50; color: white; padding: 15px; text-align: center; border-radius: 8px; margin-bottom: 25px; }
-        .container { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
-        .card { background: white; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); width: 320px; overflow: hidden; display: flex; flex-direction: column; }
+        /* Genel Stiller */
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f7f6; margin: 0; padding: 0; }
+        
+        /* Başlık Bandı (Lacivert Bölüm) */
+        .header { 
+            background-color: #2c3e50; 
+            color: white; 
+            padding: 20px 15px 70px 15px; /* Alt boşluk, görsel için artırıldı */
+            text-align: center; 
+            position: relative; /* İçerikleri konumlandırmak için */
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            gap: 15px;
+        }
+
+        /* Başlık Yazısı */
+        .header h1 {
+            margin: 0;
+            font-size: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* İletişim Bilgisi Konteynırı (WhatsApp) */
+        .contact-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background-color: rgba(255, 255, 255, 0.1); 
+            padding: 8px 18px;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            text-decoration: none; 
+            color: white; 
+            transition: background-color 0.3s;
+        }
+        .contact-info:hover { background-color: rgba(255, 255, 255, 0.2); }
+
+        /* WhatsApp Simgesi */
+        .whatsapp-icon { width: 25px; height: 25px; fill: #25d366; }
+
+        /* --- Yeni Donanım Görseli Konteynırı (Overlap Efekti) --- */
+        .hardware-hero-container {
+            width: 100%;
+            max-width: 900px; /* Maksimum genişlik */
+            margin: -60px auto 40px auto; /* Yukarı ve aşağı taşma efekti */
+            padding: 0 15px;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            position: relative; /* Diğer her şeyin üzerinde durması için */
+            z-index: 10;
+        }
+
+        /* Yeni Donanım Görseli (donanim.png) */
+        .hardware-hero-container img {
+            width: 100%;
+            height: auto;
+            max-height: 500px; /* Çok uzun olmasını engelle */
+            object-fit: contain; /* Görseli sığdır */
+            filter: drop-shadow(0 10px 25px rgba(0,0,0,0.15)); /* Şeffaf görsele gölge ekle */
+        }
+
+        /* Ürün Listesi Konteynırı */
+        .main-content {
+            padding: 20px 15px;
+        }
+        .container { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; max-width: 1200px; margin: 0 auto; }
+        
+        /* Ürün Kartı Stillerü */
+        .card { background: white; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); width: 320px; overflow: hidden; display: flex; flex-direction: column; transition: transform 0.2s; }
+        .card:hover { transform: translateY(-5px); }
         
         /* Galeri Alanı */
         .gallery-container { position: relative; width: 100%; height: 200px; background: #eee; }
         .gallery-img { width: 100%; height: 100%; object-fit: cover; }
+        
+        /* Galeri Navigasyon Butonları (Oklar) */
         .nav-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: white; border: none; padding: 10px; cursor: pointer; border-radius: 50%; display: none; }
         .gallery-container:hover .nav-btn { display: block; }
+        .nav-btn:hover { background: rgba(0,0,0,0.8); }
         .prev { left: 5px; }
         .next { right: 5px; }
 
-        .content { padding: 15px; flex-grow: 1; }
-        .title { font-size: 1.2rem; font-weight: bold; margin-bottom: 5px; }
-        .specs { font-size: 0.9rem; color: #666; height: 40px; }
-        .footer { padding: 15px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #eee; }
-        .price { font-size: 1.2rem; color: #2ecc71; font-weight: bold; }
-        .btn { background: #3498db; color: white; text-decoration: none; padding: 8px 15px; border-radius: 5px; font-size: 0.9rem; }
+        /* Kart İçerik Alanı */
+        .content { padding: 15px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
+        .title { font-size: 1.2rem; font-weight: bold; margin-bottom: 5px; color: #333; }
+        .specs { font-size: 0.9rem; color: #666; margin-bottom: 10px; flex-grow: 1; }
+        
+        /* Kart Alt Alanı (Fiyat ve Buton) */
+        .footer { padding: 15px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #eee; background-color: #fafafa; }
+        .price { font-size: 1.3rem; color: #27ae60; font-weight: bold; }
+        .btn { background: #3498db; color: white; text-decoration: none; padding: 10px 18px; border-radius: 5px; font-size: 0.95rem; font-weight: bold; transition: background 0.3s; }
         .btn:hover { background: #2980b9; }
+
+        /* Mobilde Düzenlemeler */
+        @media (max-width: 600px) {
+            .header { padding: 15px 15px 50px 15px; }
+            .header h1 { font-size: 1.5rem; gap: 5px; }
+            .header h1 svg { width: 25px; height: 25px; }
+            .contact-info { font-size: 1rem; padding: 6px 15px; }
+            .hardware-hero-container { margin: -40px auto 25px auto; padding: 0 10px; }
+            .card { width: 100%; max-width: 350px; }
+        }
     </style>
 </head>
 <body>
 
 <div class="header">
-    <h1>💻 PC SHOWROOM ADANA</h1>
+    <h1>
+        <svg style="width:30px; height:30px; fill:white;" viewBox="0 0 640 512"><path d="M128 32C92.7 32 64 60.7 64 96V352h448V96c0-35.3-28.7-64-64-64H128zM19.2 384C8.6 384 0 392.6 0 403.2C0 445.6 34.4 480 76.8 480H563.2c42.4 0 76.8-34.4 76.8-76.8c0-10.6-8.6-19.2-19.2-19.2H19.2z"/></svg>
+        PC SHOWROOM ADANA
+    </h1>
+    
+    <a href="https://wa.me/905368873931" target="_blank" class="contact-info">
+        <svg class="whatsapp-icon" viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L3.9 480l113.8-29.8c32.6 19.8 70.2 30.1 108.8 30.1h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-117zm-157 369.3c-33.1 0-65.4-8.8-93.5-25.5l-6.7-4-69.5 18.2 18.5-67.8-4.4-7c-18.6-29.4-28.4-63.3-28.4-98.1 0-101.4 82.6-184 184.1-184 49.1 0 95.3 19.1 130.1 53.9s53.9 81 53.9 130.1c0 101.4-82.7 184-184.1 184zm101.3-138c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.8-8.8-2.8-12.5 2.8-3.7 5.5-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-5.5-2.8-23.2-8.5-44.2-27.2-16.4-14.6-27.4-32.7-30.6-38.1-3.2-5.5-.3-8.5 2.5-11.2 2.5-2.5 5.5-6.5 8.3-9.7 2.8-3.2 3.7-5.5 5.5-9.2 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.5-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 13.2 5.8 23.5 9.2 31.6 11.8 13.3 4.2 25.4 3.6 35 2.2 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+        <span>📞 İletişim: 0536 887 39 31</span>
+    </a>
 </div>
 
-<div class="container" id="urun-listesi">
-    </div>
+<div class="hardware-hero-container">
+    <img src="resim/donanim.png" alt="PC Showroom Adana Bilgisayar Donanımları">
+</div>
+
+<div class="main-content">
+    <div class="container" id="urun-listesi">
+        </div>
+</div>
 
 <script>
     async function urunleriGetir() {
-        const response = await fetch('urunler.json');
-        const urunler = await response.json();
-        const liste = document.getElementById('urun-listesi');
+        try {
+            const response = await fetch('urunler.json');
+            if (!response.ok) throw new Error('Veri dosyası yüklenemedi!');
+            const urunler = await response.json();
+            const liste = document.getElementById('urun-listesi');
 
-        urunler.forEach((urun, index) => {
-            let currentImgIndex = 0;
-            const card = document.createElement('div');
-            card.className = 'card';
-            
-            card.innerHTML = `
-                <div class="gallery-container">
-                    <img id="img-${index}" src="${urun.resimler[0]}" class="gallery-img">
-                    ${urun.resimler.length > 1 ? `
-                        <button class="nav-btn prev" onclick="changeImg(${index}, -1, ${JSON.stringify(urun.resimler).replace(/"/g, '&quot;')})">❮</button>
-                        <button class="nav-btn next" onclick="changeImg(${index}, 1, ${JSON.stringify(urun.resimler).replace(/"/g, '&quot;')})">❯</button>
-                    ` : ''}
-                </div>
-                <div class="content">
-                    <div class="title">${urun.baslik}</div>
-                    <div class="specs">${urun.ozellikler}</div>
-                </div>
-                <div class="footer">
-                    <div class="price">${urun.fiyat}</div>
-                    <a href="${urun.link}" target="_blank" class="btn">İncele / İlan</a>
-                </div>
-            `;
-            liste.appendChild(card);
-        });
+            urunler.forEach((urun, index) => {
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.innerHTML = `
+                    <div class="gallery-container">
+                        <img id="img-${index}" src="${urun.resimler[0]}" class="gallery-img">
+                        ${urun.resimler.length > 1 ? `
+                            <button class="nav-btn prev" onclick="changeImg(${index}, -1, ${JSON.stringify(urun.resimler).replace(/"/g, '&quot;')})">❮</button>
+                            <button class="nav-btn next" onclick="changeImg(${index}, 1, ${JSON.stringify(urun.resimler).replace(/"/g, '&quot;')})">❯</button>
+                        ` : ''}
+                    </div>
+                    <div class="content">
+                        <div class="title">${urun.baslik}</div>
+                        <p class="specs">${urun.ozellikler}</p>
+                    </div>
+                    <div class="footer">
+                        <div class="price">${urun.fiyat}</div>
+                        <a href="${urun.link}" target="_blank" class="btn">İncele / İlan</a>
+                    </div>
+                `;
+                liste.appendChild(card);
+            });
+        } catch (error) {
+            console.error('Hata:', error);
+            document.getElementById('urun-listesi').innerHTML = `<p style="color:red; font-weight:bold; text-align:center; width:100%;">Ürünler yüklenirken bir hata oluştu.</p>`;
+        }
     }
 
     function changeImg(cardIdx, direction, resimler) {
         const imgTag = document.getElementById(`img-${cardIdx}`);
         let currentPath = imgTag.getAttribute('src');
         let index = resimler.indexOf(currentPath);
-        
         index += direction;
         if (index >= resimler.length) index = 0;
         if (index < 0) index = resimler.length - 1;
-        
         imgTag.src = resimler[index];
     }
 
-    urunleriGetir();
+    window.onload = urunleriGetir;
 </script>
 
 </body>
