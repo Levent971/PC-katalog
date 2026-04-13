@@ -3,54 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PC Katalog - Satılık Sistemler</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>💻 PC SHOWROOM ADANA</title>
     <style>
-        body { background-color: #f8f9fa; font-family: 'Segoe UI', sans-serif; }
-        .navbar { background-color: #2c3e50 !important; box-shadow: 0 2px 10px rgba(0,0,0,0.2); }
-        .pc-card { border: none; border-radius: 12px; transition: 0.3s; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
-        .pc-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
-        .card-img-top { height: 200px; object-fit: cover; border-top-left-radius: 12px; border-top-right-radius: 12px; background-color: #ddd; }
-        .price-text { color: #27ae60; font-weight: bold; font-size: 1.4rem; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f7f6; margin: 0; padding: 20px; }
+        .header { background-color: #2c3e50; color: white; padding: 15px; text-align: center; border-radius: 8px; margin-bottom: 25px; }
+        .container { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
+        .card { background: white; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); width: 320px; overflow: hidden; display: flex; flex-direction: column; }
+        
+        /* Galeri Alanı */
+        .gallery-container { position: relative; width: 100%; height: 200px; background: #eee; }
+        .gallery-img { width: 100%; height: 100%; object-fit: cover; }
+        .nav-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: white; border: none; padding: 10px; cursor: pointer; border-radius: 50%; display: none; }
+        .gallery-container:hover .nav-btn { display: block; }
+        .prev { left: 5px; }
+        .next { right: 5px; }
+
+        .content { padding: 15px; flex-grow: 1; }
+        .title { font-size: 1.2rem; font-weight: bold; margin-bottom: 5px; }
+        .specs { font-size: 0.9rem; color: #666; height: 40px; }
+        .footer { padding: 15px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #eee; }
+        .price { font-size: 1.2rem; color: #2ecc71; font-weight: bold; }
+        .btn { background: #3498db; color: white; text-decoration: none; padding: 8px 15px; border-radius: 5px; font-size: 0.9rem; }
+        .btn:hover { background: #2980b9; }
     </style>
 </head>
 <body>
 
-<nav class="navbar navbar-dark mb-5">
-    <div class="container">
-        <a class="navbar-brand fw-bold" href="#">💻 PC SHOWROOM ADANA</a>
-    </div>
-</nav>
-
-<div class="container">
-    <div class="row row-cols-1 row-cols-md-3 g-4" id="urun-kutusu">
-        </div>
+<div class="header">
+    <h1>💻 PC SHOWROOM ADANA</h1>
 </div>
 
+<div class="container" id="urun-listesi">
+    </div>
+
 <script>
-    // JSON dosyasından verileri çekme
-    fetch('urunler.json')
-        .then(response => response.json())
-        .then(data => {
-            const kutu = document.getElementById('urun-kutusu');
-            data.forEach(urun => {
-                kutu.innerHTML += `
-                    <div class="col">
-                        <div class="card h-100 pc-card">
-                            <img src="${urun.resim}" class="card-img-top" alt="${urun.baslik}" onerror="this.src='https://via.placeholder.com/400x250?text=Resim+Bekleniyor'">
-                            <div class="card-body">
-                                <h5 class="card-title fw-bold">${urun.baslik}</h5>
-                                <p class="card-text text-muted small">${urun.ozellikler}</p>
-                                <div class="d-flex justify-content-between align-items-center mt-3">
-                                    <span class="price-text">${urun.fiyat}</span>
-                                    <a href="${urun.link}" target="_blank" class="btn btn-primary btn-sm">İncele</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                `;
-            });
+    async function urunleriGetir() {
+        const response = await fetch('urunler.json');
+        const urunler = await response.json();
+        const liste = document.getElementById('urun-listesi');
+
+        urunler.forEach((urun, index) => {
+            let currentImgIndex = 0;
+            const card = document.createElement('div');
+            card.className = 'card';
+            
+            card.innerHTML = `
+                <div class="gallery-container">
+                    <img id="img-${index}" src="${urun.resimler[0]}" class="gallery-img">
+                    ${urun.resimler.length > 1 ? `
+                        <button class="nav-btn prev" onclick="changeImg(${index}, -1, ${JSON.stringify(urun.resimler).replace(/"/g, '&quot;')})">❮</button>
+                        <button class="nav-btn next" onclick="changeImg(${index}, 1, ${JSON.stringify(urun.resimler).replace(/"/g, '&quot;')})">❯</button>
+                    ` : ''}
+                </div>
+                <div class="content">
+                    <div class="title">${urun.baslik}</div>
+                    <div class="specs">${urun.ozellikler}</div>
+                </div>
+                <div class="footer">
+                    <div class="price">${urun.fiyat}</div>
+                    <a href="${urun.link}" target="_blank" class="btn">İncele / İlan</a>
+                </div>
+            `;
+            liste.appendChild(card);
         });
+    }
+
+    function changeImg(cardIdx, direction, resimler) {
+        const imgTag = document.getElementById(`img-${cardIdx}`);
+        let currentPath = imgTag.getAttribute('src');
+        let index = resimler.indexOf(currentPath);
+        
+        index += direction;
+        if (index >= resimler.length) index = 0;
+        if (index < 0) index = resimler.length - 1;
+        
+        imgTag.src = resimler[index];
+    }
+
+    urunleriGetir();
 </script>
 
 </body>
