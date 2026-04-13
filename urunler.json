@@ -9,12 +9,11 @@
     "link": "https://www.sahibinden.com/ilan-linkin"
   },
   {
-    "id": 1,
-    "baslik": "i5 Oyun Sistemi 1",
-    "ozellikler": "Intel i5 İşlemci | 16GB RAM | Performans Ekran Kartı",
-    "fiyat": "Fiyat Giriniz",
-    "durum": "aktif",
-    "resimler": ["resim/i5sistem.jpg"],
-    "link": "https://www.sahibinden.com/ilan-linkin"
-  }
+    "baslik": "i5 Performans & Gaming Sistemi",
+    "ozellikler": "Intel i5-11400F 2.60GHz | ASUS TUF RTX 2060 8GB | 16GB Corsair 3200MHz RAM | 250GB Samsung NVMe + 500GB HDD | MSI MAG FORGE 650W Kasa",
+    "fiyat": "Fiyat Sorunuz",
+    "resimler": ["resim/i5-sistem.jpg"],
+    "link": "https://wa.me/905368873931",
+    "durum": "aktif"
+}
 ]
