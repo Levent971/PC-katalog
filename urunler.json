@@ -8,11 +8,11 @@
         "link": "#"
     },
     {
-    "id": 3,
-    "baslik": "Xeon Güçlü İş İstasyonu",
-    "ozellikler": "Intel Xeon E5-2680 v4 | 32GB RAM | GTX 1050 Ti | 4K",
-    "fiyat": "12.500 TL",
-    "resim": "resim/xeon.jpg",
-    "link": "https://www.sahibinden.com/ilan-linkin"
-}
+        "id": 3,
+        "baslik": "Xeon Güçlü İş İstasyonu",
+        "ozellikler": "Intel Xeon E5-2680 v4 | 32GB RAM | GTX 1050 Ti | 4K",
+        "fiyat": "12.500 TL",
+        "resim": "resim/xeon.jpg",
+        "link": "https://www.sahibinden.com/ilan-linkin"
+    }
 ]
