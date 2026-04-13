@@ -4,15 +4,22 @@
         "baslik": "i5 Oyun Sistemi 1",
         "ozellikler": "Intel i5 İşlemci | 16GB RAM | Performans Ekran Kartı",
         "fiyat": "Fiyat Giriniz",
-        "resim": "resim/i5sistem.jpg",
-        "link": "#"
+        "resimler": [
+            "resim/i5sistem.jpg",
+            "resim/i5sistem_ic.jpg"
+        ],
+        "link": "https://www.sahibinden.com/ilan-linkin-1"
     },
     {
         "id": 3,
-        "baslik": "Xeon Güçlü İş İstasyonu",
-        "ozellikler": "Intel Xeon E5-2680 v4 | 32GB RAM | GTX 1050 Ti | 4K",
+        "baslik": "Xeon Performans Sistemi",
+        "ozellikler": "Intel Xeon E5-2680 v4 | 32GB RAM | GTX 1050 Ti",
         "fiyat": "12.500 TL",
-        "resim": "resim/xeon.jpg",
-        "link": "https://www.sahibinden.com/ilan-linkin"
+        "resimler": [
+            "resim/xeon.jpg",
+            "resim/xeon_detay1.jpg",
+            "resim/xeon_detay2.jpg"
+        ],
+        "link": "https://www.sahibinden.com/ilan-linkin-2"
     }
 ]
