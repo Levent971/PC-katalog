@@ -5,21 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>💻 PC SHOWROOM ADANA</title>
     <style>
-        /* Genel Stiller - Tamamen Mavi Tonlarda Arka Plan */
+        /* Genel Stiller - Tamamen Koyu Mavi Tonlarda Arka Plan */
         body { 
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            background-color: #d1dbe5; /* Beyazdan tamamen çıkıldı, mat mavi tonu */
+            background-color: #bec8d1; /* Mat, koyu mavimsi-gri arka plan */
             margin: 0; 
             padding: 0; 
             color: #333;
         }
         
-        /* Genişletilmiş Başlık Alanı (Lacivert Bölüm) */
+        /* Genişletilmiş ve Daha Koyu Başlık Alanı (Derin Gece Mavisi) */
         .header-hero { 
-            background-color: #2c3e50; 
+            background-color: #1a2a3a; /* Çok daha derin, koyu gece mavisi tonu */
             color: white; 
             padding: 20px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.4);
             position: relative;
             z-index: 20;
         }
@@ -42,7 +42,7 @@
         .hero-image img {
             width: 100%;
             height: auto;
-            filter: drop-shadow(0 5px 15px rgba(0,0,0,0.5));
+            filter: drop-shadow(0 6px 18px rgba(0,0,0,0.6));
         }
 
         /* Sağ Taraf: İsim ve İletişim */
@@ -56,96 +56,107 @@
 
         .hero-text h1 {
             margin: 0 0 15px 0;
-            font-size: 2.2rem;
+            font-size: 2.3rem;
             letter-spacing: 1px;
             display: flex;
             align-items: center;
             gap: 12px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
 
         .contact-box {
             display: flex;
             align-items: center;
             gap: 10px;
-            background-color: rgba(255, 255, 255, 0.1); 
-            padding: 10px 20px; 
+            background-color: rgba(255, 255, 255, 0.12); 
+            padding: 12px 25px; 
             border-radius: 30px;
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             text-decoration: none; 
             color: white; 
             transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
         }
-        .contact-box:hover { background-color: rgba(255, 255, 255, 0.2); transform: scale(1.05); }
+        .contact-box:hover { 
+            background-color: rgba(255, 255, 255, 0.2); 
+            transform: scale(1.03);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
 
         /* Alt Şerit: Hizmetler (Lacivert İçinde) */
         .services-strip {
-            margin-top: 25px;
+            margin-top: 30px;
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 25px;
             flex-wrap: wrap;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            padding-top: 15px;
+            border-top: 1px solid rgba(255,255,255,0.15);
+            padding-top: 20px;
         }
         .service-tag {
-            background: rgba(255,255,255,0.05);
-            padding: 5px 15px;
-            border-radius: 15px;
-            font-size: 0.85rem;
+            background: rgba(255,255,255,0.06);
+            padding: 6px 18px;
+            border-radius: 20px;
+            font-size: 0.9rem;
             font-weight: 500;
+            border: 1px solid rgba(255,255,255,0.1);
         }
 
         /* Ürün Listesi Bölümü */
         .container { 
             max-width: 1200px;
-            margin: 40px auto;
+            margin: 50px auto;
             display: flex; 
             flex-wrap: wrap; 
-            gap: 20px; 
+            gap: 25px; 
             justify-content: center; 
             padding: 0 20px;
         }
         
-        /* Kart Tasarımı */
+        /* Kart Tasarımı (Hafif Mavimsi-Beyaz Mat) */
         .card { 
-            background: rgba(255, 255, 255, 0.9); /* Hafif şeffaf mat beyaz */
-            border-radius: 12px; 
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08); 
+            background: #f8f9fa; /* Saf beyaz yerine mavimsi-beyaz mat ton */
+            border-radius: 14px; 
+            box-shadow: 0 6px 25px rgba(0,0,0,0.1); 
             width: 280px; 
             overflow: hidden; 
             display: flex; 
             flex-direction: column; 
             transition: all 0.3s ease;
-            border: 1px solid rgba(255,255,255,0.3);
+            border: 1px solid #e1e4e8;
             position: relative;
         }
-        .card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.12); }
+        .card:hover { transform: translateY(-7px); box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
         
         .gallery-container { position: relative; width: 100%; height: 180px; background: #eee; }
         .gallery-img { width: 100%; height: 100%; object-fit: cover; }
         
         .sold-badge {
-            position: absolute; top: 10px; right: -25px; background: #e74c3c; color: white;
-            padding: 5px 30px; transform: rotate(45deg); font-weight: bold; font-size: 0.7rem;
+            position: absolute; top: 10px; right: -30px; background: #c0392b; /* Daha mat, koyu kırmızı */
+            color: white;
+            padding: 6px 35px; transform: rotate(45deg); font-weight: bold; font-size: 0.75rem;
             z-index: 5;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
         }
-        .sold-overlay { filter: grayscale(1) opacity(0.6); }
+        .sold-overlay { filter: grayscale(1) opacity(0.5); }
 
-        .content { padding: 15px; flex-grow: 1; }
-        .title { font-size: 1.1rem; font-weight: 700; color: #2c3e50; margin-bottom: 6px; }
-        .specs { font-size: 0.8rem; color: #555; line-height: 1.4; }
+        .content { padding: 18px; flex-grow: 1; }
+        .title { font-size: 1.15rem; font-weight: 700; color: #1a2a3a; margin-bottom: 8px; }
+        .specs { font-size: 0.85rem; color: #555; line-height: 1.5; }
         
-        .footer { padding: 12px 15px; display: flex; justify-content: space-between; align-items: center; background-color: rgba(0,0,0,0.02); }
-        .price { font-size: 1.2rem; color: #27ae60; font-weight: 800; }
-        .btn { background: #3498db; color: white; text-decoration: none; padding: 8px 15px; border-radius: 5px; font-weight: bold; font-size: 0.8rem; }
+        .footer { padding: 15px 18px; display: flex; justify-content: space-between; align-items: center; background-color: rgba(0,0,0,0.03); border-top: 1px solid rgba(0,0,0,0.05); }
+        .price { font-size: 1.3rem; color: #2ecc71; font-weight: 800; }
+        .btn { background: #3498db; color: white; text-decoration: none; padding: 10px 18px; border-radius: 6px; font-weight: bold; font-size: 0.85rem; transition: background 0.2s; }
+        .btn:hover { background: #2980b9; }
         .sold-btn { background: #7f8c8d !important; cursor: not-allowed; }
 
         /* Mobil Ayarlar */
         @media (max-width: 768px) {
             .header-content { flex-direction: column; text-align: center; }
-            .hero-image { flex: none; width: 200px; }
-            .hero-text h1 { font-size: 1.6rem; }
+            .hero-image { flex: none; width: 220px; }
+            .hero-text h1 { font-size: 1.8rem; }
+            .contact-box { font-size: 1rem; padding: 10px 20px; }
             .services-strip { gap: 10px; }
         }
     </style>
@@ -155,7 +166,7 @@
 <div class="header-hero">
     <div class="header-content">
         <div class="hero-image">
-            <img src="resim/donanim.png" alt="Donanım">
+            <img src="resim/donanim.png" alt="PC Showroom Donanım Görseli">
         </div>
 
         <div class="hero-text">
@@ -181,6 +192,7 @@
     async function urunleriGetir() {
         try {
             const response = await fetch('urunler.json');
+            if (!response.ok) throw new Error('Veri dosyası yüklenemedi!');
             const urunler = await response.json();
             const liste = document.getElementById('urun-listesi');
 
@@ -194,7 +206,7 @@
                 card.innerHTML = `
                     ${isSold ? '<div class="sold-badge">SATILDI</div>' : ''}
                     <div class="gallery-container ${isSold ? 'sold-overlay' : ''}">
-                        <img id="img-${index}" src="${urun.resimler[0]}" class="gallery-img">
+                        <img id="img-${index}" src="${urun.resimler[0]}" class="gallery-img" alt="${urun.baslik}">
                     </div>
                     <div class="content">
                         <div class="title">${urun.baslik}</div>
@@ -202,14 +214,17 @@
                     </div>
                     <div class="footer">
                         <div class="price">${isSold ? '---' : urun.fiyat}</div>
-                        <a href="${isSold ? '#' : urun.link}" class="btn ${isSold ? 'sold-btn' : ''}">
+                        <a href="${isSold ? '#' : urun.link}" target="_blank" class="btn ${isSold ? 'sold-btn' : ''}" ${isSold ? 'onclick="return false;"' : ''}>
                             ${isSold ? 'Satıldı' : 'İncele / İlan'}
                         </a>
                     </div>
                 `;
                 liste.appendChild(card);
             });
-        } catch (e) { console.error(e); }
+        } catch (e) { 
+            console.error(e); 
+            document.getElementById('urun-listesi').innerHTML = `<p style="color:#c0392b; font-weight:bold; text-align:center; width:100%;">Ürünler yüklenirken bir hata oluştu.</p>`;
+        }
     }
     window.onload = urunleriGetir;
 </script>
