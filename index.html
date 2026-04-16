@@ -1,444 +1,265 @@
-PC SHOWROOM ADANA
-
-    body {
-
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
-        background-color: #1a1a1a;
-
-        color: var(--text-color);
-
-        margin: 0;
-
-        display: flex;
-
-        flex-direction: column;
-
-        align-items: center;
-
-        min-height: 100vh;
-
-    }
-
-    .header {
-
-        width: 100%;
-
-        background-color: var(--bg-color);
-
-        padding: 40px 20px;
-
-        display: flex;
-
-        justify-content: center;
-
-        align-items: center;
-
-        gap: 40px;
-
-        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-
-        flex-wrap: wrap;
-
-    }
-
-    .header img {
-
-        max-width: 300px;
-
-        border-radius: 8px;
-
-    }
-
-    .header-info {
-
-        text-align: left;
-
-    }
-
-    .header-info h1 {
-
-        margin: 0;
-
-        font-size: 2.5rem;
-
-        letter-spacing: 2px;
-
-    }
-
-    .contact-pill {
-
-        display: inline-flex;
-
-        align-items: center;
-
-        background: rgba(255, 255, 255, 0.1);
-
-        padding: 10px 20px;
-
-        border-radius: 50px;
-
-        margin-top: 15px;
-
-        border: 1px solid rgba(255, 255, 255, 0.2);
-
-    }
-
-    .services {
-
-        display: flex;
-
-        gap: 10px;
-
-        margin-top: 20px;
-
-        flex-wrap: wrap;
-
-    }
-
-    .service-tag {
-
-        background: #233554;
-
-        padding: 5px 15px;
-
-        border-radius: 4px;
-
-        font-size: 0.8rem;
-
-    }
-
-    .container {
-
-        display: flex;
-
-        flex-wrap: wrap;
-
-        justify-content: center;
-
-        gap: 30px;
-
-        padding: 50px 20px;
-
-        max-width: 1200px;
-
-    }
-
-    .card {
-
-        background-color: var(--card-bg);
-
-        width: 350px;
-
-        border-radius: 15px;
-
-        overflow: hidden;
-
-        position: relative;
-
-        transition: transform 0.3s;
-
-        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-
-        display: flex;
-
-        flex-direction: column;
-
-    }
-
-    .card:hover {
-
-        transform: translateY(-10px);
-
-    }
-
-    .sold-badge {
-
-        position: absolute;
-
-        top: 20px;
-
-        right: -35px;
-
-        background: var(--sold-color);
-
-        color: white;
-
-        padding: 5px 40px;
-
-        transform: rotate(45deg);
-
-        z-index: 10;
-
-        font-weight: bold;
-
-        font-size: 0.8rem;
-
-    }
-
-    .gallery-container {
-
-        height: 250px;
-
-        overflow: hidden;
-
-    }
-
-    .gallery-img {
-
-        width: 100%;
-
-        height: 100%;
-
-        object-fit: cover;
-
-    }
-
-    .sold-overlay {
-
-        filter: grayscale(100%) brightness(50%);
-
-    }
-
-    .content {
-
-        padding: 20px;
-
-        flex-grow: 1;
-
-    }
-
-    .title {
-
-        font-size: 1.25rem;
-
-        font-weight: bold;
-
-        margin-bottom: 10px;
-
-        color: white;
-
-    }
-
-    .description {
-
-        color: var(--accent-color);
-
-        font-size: 0.9rem;
-
-        margin-bottom: 8px;
-
-    }
-
-    .specs {
-
-        font-size: 0.85rem;
-
-        line-height: 1.6;
-
-        color: #a8b2d1;
-
-    }
-
-    .footer {
-
-        padding: 20px;
-
-        display: flex;
-
-        justify-content: space-between;
-
-        align-items: center;
-
-        background: rgba(0,0,0,0.2);
-
-    }
-
-    .price {
-
-        font-size: 1.2rem;
-
-        font-weight: bold;
-
-        color: var(--accent-color);
-
-    }
-
-    .btn {
-
-        background: #007bff;
-
-        color: white;
-
-        padding: 8px 16px;
-
-        border-radius: 5px;
-
-        text-decoration: none;
-
-        font-weight: bold;
-
-        font-size: 0.85rem;
-
-        transition: background 0.3s;
-
-    }
-
-    .btn:hover {
-
-        background: #0056b3;
-
-    }
-
-    #urun-listesi {
-
-        display: flex;
-
-        flex-wrap: wrap;
-
-        justify-content: center;
-
-        gap: 30px;
-
-    }
-
-</style>
-
-<header class="header">
-
-    <img src="resim/donanim.png" alt="PC Showroom Donanım Görseli">
-
-    <div class="header-info">
-
-        <h1>💻 PC SHOWROOM ADANA</h1>
-
-        <div class="contact-pill">📞 İletişim: 0536 887 39 31</div>
-
-        <div class="services">
-
-            <span class="service-tag">🛠 Bakım & Onarım</span>
-
-            <span class="service-tag">🚀 Yükseltme</span>
-
-            <span class="service-tag">🧼 Temizlik</span>
-
-            <span class="service-tag">⚙ Parça Değişimi</span>
-
-        </div>
-
-    </div>
-
-</header>
-
-<div class="container">
-
-    <div id="urun-listesi">
-
-        <!-- Ürünler JavaScript ile buraya gelecek -->
-
-    </div>
-
-</div>
-
-<script>
-
-    async function urunleriGetir() {
-
-        try {
-
-            const response = await fetch('urunler.json');
-
-            let urunler = await response.json();
-
-            const liste = document.getElementById('urun-listesi');
-
-            liste.innerHTML = '';
-
-            // SATILANLARI SONA ATAN SIRALAMA
-
-            urunler.sort((a, b) => {
-
-                if (a.durum === "aktif" && b.durum === "satildi") return -1;
-
-                if (a.durum === "satildi" && b.durum === "aktif") return 1;
-
-                return 0;
-
-            });
-
-            urunler.forEach((urun) => {
-
-                if(urun.durum === "sil") return;
-
-                
-
-                const isSold = urun.durum === "satildi";
-
-                const card = document.createElement('div');
-
-                card.className = 'card';
-
-                
-
-                card.innerHTML = `
-
-                    ${isSold ? '<div class="sold-badge">SATILDI</div>' : ''}
-
-                    <div class="gallery-container">
-
-                        <img src="${urun.resimler[0]}" class="gallery-img ${isSold ? 'sold-overlay' : ''}">
-
-                    </div>
-
-                    <div class="content">
-
-                        <div class="title">${urun.baslik}</div>
-
-                        ${urun.aciklama ? `<p class="description">${urun.aciklama}</p>` : ''}
-
-                        <p class="specs">${urun.ozellikler}</p>
-
-                    </div>
-
-                    <div class="footer">
-
-                        <div class="price" style="color: ${isSold ? '#888' : '#64ffda'}">
-
-                            ${isSold ? '---' : urun.fiyat}
-
-                        </div>
-
-                        <a href="${isSold ? '#' : urun.link}" 
-
-                           class="btn" 
-
-                           ${isSold ? 'style="background: #333; cursor: not-allowed;" onclick="return false;"' : ''}>
-
-                            ${isSold ? 'SATILDI' : 'İNCELE / İLAN'}
-
-                        </a>
-
-                    </div>
-
-                `;
-
-                liste.appendChild(card);
-
-            });
-
-        } catch (e) {
-
-            console.error("Veri çekme hatası:", e);
-
-            document.getElementById('urun-listesi').innerHTML = "<p>Ürünler yüklenirken bir hata oluştu.</p>";
-
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PC SHOWROOM ADANA</title>
+    <style>
+        :root {
+            --bg-color: #0a192f;
+            --card-bg: #112240;
+            --text-color: #ccd6f6;
+            --accent-color: #64ffda;
+            --sold-color: #ff4b2b;
         }
 
-    }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #1a1a1a;
+            color: var(--text-color);
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
 
-    // Sayfa yüklendiğinde fonksiyonu çalıştır
+        .header {
+            width: 100%;
+            background-color: var(--bg-color);
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            flex-wrap: wrap;
+        }
 
-    window.onload = urunleriGetir;
+        .header img {
+            max-width: 300px;
+            border-radius: 8px;
+        }
 
-</script>
+        .header-info {
+            text-align: left;
+        }
 
+        .header-info h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            letter-spacing: 2px;
+        }
+
+        .contact-pill {
+            display: inline-flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px 20px;
+            border-radius: 50px;
+            margin-top: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .services {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .service-tag {
+            background: #233554;
+            padding: 5px 15px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            padding: 50px 20px;
+            max-width: 1200px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            width: 350px;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            transition: transform 0.3s;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .sold-badge {
+            position: absolute;
+            top: 20px;
+            right: -35px;
+            background: var(--sold-color);
+            color: white;
+            padding: 5px 40px;
+            transform: rotate(45deg);
+            z-index: 10;
+            font-weight: bold;
+            font-size: 0.8rem;
+        }
+
+        .gallery-container {
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .gallery-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .sold-overlay {
+            filter: grayscale(100%) brightness(50%);
+        }
+
+        .content {
+            padding: 20px;
+            flex-grow: 1;
+        }
+
+        .title {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: white;
+        }
+
+        .description {
+            color: var(--accent-color);
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .specs {
+            font-size: 0.85rem;
+            line-height: 1.6;
+            color: #a8b2d1;
+        }
+
+        .footer {
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0,0,0,0.2);
+        }
+
+        .price {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--accent-color);
+        }
+
+        .btn {
+            background: #007bff;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.85rem;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background: #0056b3;
+        }
+
+        #urun-listesi {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <img src="resim/donanim.png" alt="PC Showroom Donanım Görseli">
+        <div class="header-info">
+            <h1>💻 PC SHOWROOM ADANA</h1>
+            <div class="contact-pill">📞 İletişim: 0536 887 39 31</div>
+            <div class="services">
+                <span class="service-tag">🛠 Bakım & Onarım</span>
+                <span class="service-tag">🚀 Yükseltme</span>
+                <span class="service-tag">🧼 Temizlik</span>
+                <span class="service-tag">⚙ Parça Değişimi</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div id="urun-listesi"></div>
+    </div>
+
+    <script>
+        async function urunleriGetir() {
+            try {
+                const response = await fetch('urunler.json');
+                let urunler = await response.json();
+                const liste = document.getElementById('urun-listesi');
+                liste.innerHTML = '';
+
+                // SIRALAMA: Aktifler başa, Satıldı olanlar sona
+                urunler.sort((a, b) => {
+                    if (a.durum === "aktif" && b.durum === "satildi") return -1;
+                    if (a.durum === "satildi" && b.durum === "aktif") return 1;
+                    return 0;
+                });
+
+                urunler.forEach((urun) => {
+                    if(urun.durum === "sil") return;
+                    
+                    const isSold = urun.durum === "satildi";
+                    const card = document.createElement('div');
+                    card.className = 'card';
+                    
+                    card.innerHTML = `
+                        ${isSold ? '<div class="sold-badge">SATILDI</div>' : ''}
+                        <div class="gallery-container">
+                            <img src="${urun.resimler[0]}" class="gallery-img ${isSold ? 'sold-overlay' : ''}">
+                        </div>
+                        <div class="content">
+                            <div class="title">${urun.baslik}</div>
+                            ${urun.aciklama ? `<p class="description">${urun.aciklama}</p>` : ''}
+                            <p class="specs">${urun.ozellikler}</p>
+                        </div>
+                        <div class="footer">
+                            <div class="price" style="color: ${isSold ? '#888' : '#64ffda'}">
+                                ${isSold ? '---' : urun.fiyat}
+                            </div>
+                            <a href="${isSold ? '#' : urun.link}" 
+                               class="btn" 
+                               ${isSold ? 'style="background: #333; cursor: not-allowed;" onclick="return false;"' : ''}>
+                                ${isSold ? 'SATILDI' : 'İNCELE / İLAN'}
+                            </a>
+                        </div>
+                    `;
+                    liste.appendChild(card);
+                });
+            } catch (e) {
+                console.error("Hata:", e);
+            }
+        }
+        window.onload = urunleriGetir;
+    </script>
+</body>
+</html>
