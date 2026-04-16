@@ -1,180 +1,444 @@
-<!DOCTYPE html>
-<html lang="tr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>💻 PC SHOWROOM ADANA</title>
-    <style>
-        /* Genel Stiller */
-        body { 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            background-color: #bec8d1; 
-            margin: 0; 
-            padding: 0; 
-        }
-        
-        /* Başlık Alanı */
-        .header-hero { 
-            background-color: #1a2a3a; 
-            color: white; 
-            padding: 20px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.4);
-        }
+PC SHOWROOM ADANA
 
-        .header-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 30px;
-        }
+    body {
 
-        .hero-image img { width: 350px; height: auto; filter: drop-shadow(0 6px 18px rgba(0,0,0,0.6)); }
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
-        .hero-text h1 { font-size: 2.3rem; margin-bottom: 15px; }
+        background-color: #1a1a1a;
 
-        .contact-box {
-            display: inline-flex;
-            align-items: center;
-            padding: 12px 25px; 
-            background: rgba(255, 255, 255, 0.12);
-            border-radius: 30px;
-            color: white;
-            text-decoration: none;
-            border: 1px solid rgba(255, 255, 255, 0.25);
-        }
+        color: var(--text-color);
 
-        .services-strip {
-            margin-top: 30px;
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            border-top: 1px solid rgba(255,255,255,0.15);
-            padding-top: 20px;
-        }
-        .service-tag { background: rgba(255,255,255,0.06); padding: 6px 15px; border-radius: 20px; font-size: 0.9rem; }
+        margin: 0;
 
-        /* Ürün Kartları Bölümü */
-        .container { 
-            max-width: 1200px;
-            margin: 50px auto;
-            display: flex; 
-            flex-wrap: wrap; 
-            gap: 25px; 
-            justify-content: center; 
-        }
-        
-        .card { 
-            background: #1a2a3a; 
-            border-radius: 14px; 
-            width: 280px; 
-            overflow: hidden; 
-            display: flex; 
-            flex-direction: column; 
-            position: relative; /* Etiket için gerekli */
-            border: 1px solid rgba(255,255,255,0.1);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-            transition: transform 0.3s;
-        }
-        .card:hover { transform: translateY(-5px); }
-        
-        /* Her Zaman Görünür SATILDI Etiketi */
-        .sold-badge {
-            position: absolute;
-            top: 15px;
-            right: -35px;
-            background: #ff3333; /* Parlak kırmızı */
-            color: white;
-            padding: 5px 40px;
-            transform: rotate(45deg);
-            font-weight: bold;
-            font-size: 0.8rem;
-            z-index: 10;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
-            display: block !important; /* Her zaman görünür */
-        }
+        display: flex;
 
-        .gallery-container { position: relative; width: 100%; height: 180px; background: #000; }
-        .gallery-img { width: 100%; height: 100%; object-fit: cover; }
-        
-        /* Satılan ürün görselini karartma */
-        .sold-overlay { filter: brightness(0.4) grayscale(0.8); }
+        flex-direction: column;
 
-        .content { padding: 18px; flex-grow: 1; color: white; }
-        .title { font-size: 1.15rem; font-weight: 700; margin-bottom: 8px; }
-        .specs { font-size: 0.85rem; color: #ccc; line-height: 1.5; }
-        
-        .footer { padding: 15px 18px; display: flex; justify-content: space-between; align-items: center; background: rgba(0,0,0,0.2); }
-        .price { font-size: 1.2rem; color: #2ecc71; font-weight: bold; }
-        .btn { background: #3498db; color: white; text-decoration: none; padding: 8px 15px; border-radius: 6px; font-weight: bold; font-size: 0.8rem; }
-        
-        /* Satıldı Buton Stili */
-        .sold-btn { background: #444 !important; color: #888 !important; cursor: not-allowed; }
+        align-items: center;
 
-        @media (max-width: 768px) {
-            .header-content { flex-direction: column; text-align: center; }
-            .hero-image img { width: 250px; }
-        }
-    </style>
-</head>
-<body>
+        min-height: 100vh;
 
-<div class="header-hero">
-    <div class="header-content">
-        <div class="hero-image">
-            <img src="resim/donanim.png" alt="PC Showroom">
+    }
+
+    .header {
+
+        width: 100%;
+
+        background-color: var(--bg-color);
+
+        padding: 40px 20px;
+
+        display: flex;
+
+        justify-content: center;
+
+        align-items: center;
+
+        gap: 40px;
+
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+
+        flex-wrap: wrap;
+
+    }
+
+    .header img {
+
+        max-width: 300px;
+
+        border-radius: 8px;
+
+    }
+
+    .header-info {
+
+        text-align: left;
+
+    }
+
+    .header-info h1 {
+
+        margin: 0;
+
+        font-size: 2.5rem;
+
+        letter-spacing: 2px;
+
+    }
+
+    .contact-pill {
+
+        display: inline-flex;
+
+        align-items: center;
+
+        background: rgba(255, 255, 255, 0.1);
+
+        padding: 10px 20px;
+
+        border-radius: 50px;
+
+        margin-top: 15px;
+
+        border: 1px solid rgba(255, 255, 255, 0.2);
+
+    }
+
+    .services {
+
+        display: flex;
+
+        gap: 10px;
+
+        margin-top: 20px;
+
+        flex-wrap: wrap;
+
+    }
+
+    .service-tag {
+
+        background: #233554;
+
+        padding: 5px 15px;
+
+        border-radius: 4px;
+
+        font-size: 0.8rem;
+
+    }
+
+    .container {
+
+        display: flex;
+
+        flex-wrap: wrap;
+
+        justify-content: center;
+
+        gap: 30px;
+
+        padding: 50px 20px;
+
+        max-width: 1200px;
+
+    }
+
+    .card {
+
+        background-color: var(--card-bg);
+
+        width: 350px;
+
+        border-radius: 15px;
+
+        overflow: hidden;
+
+        position: relative;
+
+        transition: transform 0.3s;
+
+        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+
+        display: flex;
+
+        flex-direction: column;
+
+    }
+
+    .card:hover {
+
+        transform: translateY(-10px);
+
+    }
+
+    .sold-badge {
+
+        position: absolute;
+
+        top: 20px;
+
+        right: -35px;
+
+        background: var(--sold-color);
+
+        color: white;
+
+        padding: 5px 40px;
+
+        transform: rotate(45deg);
+
+        z-index: 10;
+
+        font-weight: bold;
+
+        font-size: 0.8rem;
+
+    }
+
+    .gallery-container {
+
+        height: 250px;
+
+        overflow: hidden;
+
+    }
+
+    .gallery-img {
+
+        width: 100%;
+
+        height: 100%;
+
+        object-fit: cover;
+
+    }
+
+    .sold-overlay {
+
+        filter: grayscale(100%) brightness(50%);
+
+    }
+
+    .content {
+
+        padding: 20px;
+
+        flex-grow: 1;
+
+    }
+
+    .title {
+
+        font-size: 1.25rem;
+
+        font-weight: bold;
+
+        margin-bottom: 10px;
+
+        color: white;
+
+    }
+
+    .description {
+
+        color: var(--accent-color);
+
+        font-size: 0.9rem;
+
+        margin-bottom: 8px;
+
+    }
+
+    .specs {
+
+        font-size: 0.85rem;
+
+        line-height: 1.6;
+
+        color: #a8b2d1;
+
+    }
+
+    .footer {
+
+        padding: 20px;
+
+        display: flex;
+
+        justify-content: space-between;
+
+        align-items: center;
+
+        background: rgba(0,0,0,0.2);
+
+    }
+
+    .price {
+
+        font-size: 1.2rem;
+
+        font-weight: bold;
+
+        color: var(--accent-color);
+
+    }
+
+    .btn {
+
+        background: #007bff;
+
+        color: white;
+
+        padding: 8px 16px;
+
+        border-radius: 5px;
+
+        text-decoration: none;
+
+        font-weight: bold;
+
+        font-size: 0.85rem;
+
+        transition: background 0.3s;
+
+    }
+
+    .btn:hover {
+
+        background: #0056b3;
+
+    }
+
+    #urun-listesi {
+
+        display: flex;
+
+        flex-wrap: wrap;
+
+        justify-content: center;
+
+        gap: 30px;
+
+    }
+
+</style>
+
+<header class="header">
+
+    <img src="resim/donanim.png" alt="PC Showroom Donanım Görseli">
+
+    <div class="header-info">
+
+        <h1>💻 PC SHOWROOM ADANA</h1>
+
+        <div class="contact-pill">📞 İletişim: 0536 887 39 31</div>
+
+        <div class="services">
+
+            <span class="service-tag">🛠 Bakım & Onarım</span>
+
+            <span class="service-tag">🚀 Yükseltme</span>
+
+            <span class="service-tag">🧼 Temizlik</span>
+
+            <span class="service-tag">⚙ Parça Değişimi</span>
+
         </div>
-        <div class="hero-text">
-            <h1>💻 PC SHOWROOM ADANA</h1>
-            <a href="https://wa.me/905368873931" target="_blank" class="contact-box">
-                <span>📞 İletişim: 0536 887 39 31</span>
-            </a>
-            <div class="services-strip">
-                <span class="service-tag">🛠️ Bakım & Onarım</span>
-                <span class="service-tag">🚀 Yükseltme</span>
-                <span class="service-tag">🧼 Temizlik</span>
-                <span class="service-tag">⚙️ Parça Değişimi</span>
-            </div>
-        </div>
+
     </div>
+
+</header>
+
+<div class="container">
+
+    <div id="urun-listesi">
+
+        <!-- Ürünler JavaScript ile buraya gelecek -->
+
+    </div>
+
 </div>
 
-<div class="container" id="urun-listesi"></div>
-
 <script>
+
     async function urunleriGetir() {
+
         try {
+
             const response = await fetch('urunler.json');
-            const urunler = await response.json();
+
+            let urunler = await response.json();
+
             const liste = document.getElementById('urun-listesi');
 
-            urunler.forEach((urun, index) => {
-                if(urun.durum === "sil") return;
-                const isSold = urun.durum === "satildi";
-                const card = document.createElement('div');
-                card.className = 'card';
-                card.innerHTML = `
-                    ${isSold ? '<div class="sold-badge">SATILDI</div>' : ''}
-                    <div class="gallery-container">
-                        <img src="${urun.resimler[0]}" class="gallery-img ${isSold ? 'sold-overlay' : ''}">
-                    </div>
-                    <div class="content">
-                        <div class="title">${urun.baslik}</div>
-                        <p class="specs">${urun.ozellikler}</p>
-                    </div>
-                    <div class="footer">
-                        <div class="price">${isSold ? '---' : urun.fiyat}</div>
-                        <a href="${isSold ? '#' : urun.link}" class="btn ${isSold ? 'sold-btn' : ''}" ${isSold ? 'onclick="return false;"' : ''}>
-                            ${isSold ? 'SATILDI' : 'İNCELE / İLAN'}
-                        </a>
-                    </div>
-                `;
-                liste.appendChild(card);
+            liste.innerHTML = '';
+
+            // SATILANLARI SONA ATAN SIRALAMA
+
+            urunler.sort((a, b) => {
+
+                if (a.durum === "aktif" && b.durum === "satildi") return -1;
+
+                if (a.durum === "satildi" && b.durum === "aktif") return 1;
+
+                return 0;
+
             });
-        } catch (e) { console.error(e); }
+
+            urunler.forEach((urun) => {
+
+                if(urun.durum === "sil") return;
+
+                
+
+                const isSold = urun.durum === "satildi";
+
+                const card = document.createElement('div');
+
+                card.className = 'card';
+
+                
+
+                card.innerHTML = `
+
+                    ${isSold ? '<div class="sold-badge">SATILDI</div>' : ''}
+
+                    <div class="gallery-container">
+
+                        <img src="${urun.resimler[0]}" class="gallery-img ${isSold ? 'sold-overlay' : ''}">
+
+                    </div>
+
+                    <div class="content">
+
+                        <div class="title">${urun.baslik}</div>
+
+                        ${urun.aciklama ? `<p class="description">${urun.aciklama}</p>` : ''}
+
+                        <p class="specs">${urun.ozellikler}</p>
+
+                    </div>
+
+                    <div class="footer">
+
+                        <div class="price" style="color: ${isSold ? '#888' : '#64ffda'}">
+
+                            ${isSold ? '---' : urun.fiyat}
+
+                        </div>
+
+                        <a href="${isSold ? '#' : urun.link}" 
+
+                           class="btn" 
+
+                           ${isSold ? 'style="background: #333; cursor: not-allowed;" onclick="return false;"' : ''}>
+
+                            ${isSold ? 'SATILDI' : 'İNCELE / İLAN'}
+
+                        </a>
+
+                    </div>
+
+                `;
+
+                liste.appendChild(card);
+
+            });
+
+        } catch (e) {
+
+            console.error("Veri çekme hatası:", e);
+
+            document.getElementById('urun-listesi').innerHTML = "<p>Ürünler yüklenirken bir hata oluştu.</p>";
+
+        }
+
     }
+
+    // Sayfa yüklendiğinde fonksiyonu çalıştır
+
     window.onload = urunleriGetir;
+
 </script>
-</body>
-</html>
+
