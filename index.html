@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PC SHOWROOM ADANA</title>
-    <!-- İkonlar için FontAwesome ekledik -->
+    <!-- İkonlar için FontAwesome Kütüphanesi -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -14,7 +14,6 @@
             --accent-color: #64ffda;
             --sold-color: #ff4b2b;
             --whatsapp-green: #25D366;
-            --sahibinden-yellow: #ffda00;
         }
 
         body {
@@ -107,7 +106,6 @@
         .description { color: var(--accent-color); font-size: 0.9rem; margin-bottom: 8px; font-weight: 500; }
         .specs { font-size: 0.85rem; line-height: 1.6; color: #a8b2d1; }
 
-        /* BUTON GRUBU */
         .footer {
             padding: 15px 20px;
             display: flex;
@@ -145,6 +143,7 @@
 </head>
 <body>
 
+    <!-- ÜST BİLGİ ALANI -->
     <header class="header">
         <img src="resim/donanim.png" alt="PC Showroom Donanım Görseli">
         <div class="header-info">
@@ -159,20 +158,22 @@
         </div>
     </header>
 
+    <!-- ÜRÜN LİSTELEME ALANI -->
     <div class="container">
         <div id="urun-listesi"></div>
     </div>
 
+    <!-- JAVASCRIPT KODLARI -->
     <script>
-        const TEL_NO = "905368873931"; // WhatsApp için tel no (başında 90 ile)
-
         async function urunleriGetir() {
             try {
+                // urunler.json dosyasını oku
                 const response = await fetch('urunler.json');
                 let urunler = await response.json();
                 const liste = document.getElementById('urun-listesi');
                 liste.innerHTML = '';
 
+                // Satılan ürünleri listenin sonuna at
                 urunler.sort((a, b) => {
                     if (a.durum === "aktif" && b.durum === "satildi") return -1;
                     if (a.durum === "satildi" && b.durum === "aktif") return 1;
@@ -186,14 +187,15 @@
                     const card = document.createElement('div');
                     card.className = 'card';
                     
+                    // Resimleri HTML'e ekle
                     let resimHtml = '';
                     urun.resimler.forEach((resim, index) => {
                         resimHtml += `<img src="${resim}" class="gallery-img ${index === 0 ? 'active' : ''} ${isSold ? 'sold-overlay' : ''}">`;
                     });
                     
-                    // WhatsApp Mesaj İçeriği
+                    // WhatsApp Linki (JSON içindeki numaraya özel)
                     const wpMesaj = encodeURIComponent(`Merhaba, "${urun.baslik}" ilanı hakkında bilgi almak istiyorum.`);
-                    const wpLink = `https://wa.me/${TEL_NO}?text=${wpMesaj}`;
+                    const wpLink = `https://wa.me/${urun.whatsapp_no}?text=${wpMesaj}`;
 
                     card.innerHTML = `
                         ${isSold ? '<div class="sold-badge">SATILDI</div>' : ''}
@@ -211,7 +213,7 @@
                             </div>
                             <div class="button-group">
                                 ${!isSold ? `
-                                    <a href="${urun.link}" target="_blank" class="btn-action btn-sahibinden">
+                                    <a href="${urun.ilan_linki}" target="_blank" class="btn-action btn-sahibinden">
                                         <i class="fa-solid fa-up-right-from-square"></i> İNCELE
                                     </a>
                                     <a href="${wpLink}" target="_blank" class="btn-action btn-whatsapp">
@@ -225,21 +227,29 @@
                     `;
                     liste.appendChild(card);
 
-                    if (urun.resimler.length > 1) startSlider(card);
+                    // Eğer birden fazla resim varsa otomatik slider başlat
+                    if (urun.resimler.length > 1) {
+                        startSlider(card);
+                    }
                 });
-            } catch (e) { console.error("Hata:", e); }
+            } catch (e) {
+                console.error("Hata oluştu:", e);
+            }
         }
 
+        // Resim değiştirme motoru
         function startSlider(card) {
             let images = card.querySelectorAll('.gallery-img');
             let currentIndex = 0;
+
             setInterval(() => {
                 images[currentIndex].classList.remove('active');
                 currentIndex = (currentIndex + 1) % images.length;
                 images[currentIndex].classList.add('active');
-            }, 3000);
+            }, 3000); // Her 3 saniyede bir değişim
         }
 
+        // Sayfa hazır olduğunda ürünleri yükle
         window.onload = urunleriGetir;
     </script>
 </body>
