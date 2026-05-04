@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PC SHOWROOM ADANA</title>
+    <!-- İkonlar için FontAwesome ekledik -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --bg-color: #0a192f;
@@ -11,6 +13,8 @@
             --text-color: #ccd6f6;
             --accent-color: #64ffda;
             --sold-color: #ff4b2b;
+            --whatsapp-green: #25D366;
+            --sahibinden-yellow: #ffda00;
         }
 
         body {
@@ -36,11 +40,7 @@
             flex-wrap: wrap;
         }
 
-        .header img {
-            max-width: 300px;
-            border-radius: 8px;
-        }
-
+        .header img { max-width: 300px; border-radius: 8px; }
         .header-info { text-align: left; }
         .header-info h1 { margin: 0; font-size: 2.5rem; letter-spacing: 2px; }
 
@@ -93,28 +93,13 @@
             font-size: 0.8rem;
         }
 
-        /* GALERİ ALANI */
-        .gallery-container {
-            height: 250px;
-            position: relative;
-            overflow: hidden;
-        }
-
+        .gallery-container { height: 250px; position: relative; overflow: hidden; }
         .gallery-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            position: absolute;
-            top: 0;
-            left: 0;
-            opacity: 0;
-            transition: opacity 0.8s ease-in-out;
+            width: 100%; height: 100%; object-fit: cover;
+            position: absolute; top: 0; left: 0;
+            opacity: 0; transition: opacity 0.8s ease-in-out;
         }
-
-        .gallery-img.active {
-            opacity: 1;
-        }
-
+        .gallery-img.active { opacity: 1; }
         .sold-overlay { filter: grayscale(100%) brightness(50%); }
 
         .content { padding: 20px; flex-grow: 1; }
@@ -122,26 +107,38 @@
         .description { color: var(--accent-color); font-size: 0.9rem; margin-bottom: 8px; font-weight: 500; }
         .specs { font-size: 0.85rem; line-height: 1.6; color: #a8b2d1; }
 
+        /* BUTON GRUBU */
         .footer {
-            padding: 20px;
+            padding: 15px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             background: rgba(0,0,0,0.2);
+            gap: 10px;
         }
 
-        .price { font-size: 1.2rem; font-weight: bold; color: var(--accent-color); }
-        .btn {
-            background: #007bff;
-            color: white;
-            padding: 8px 16px;
-            border-radius: 5px;
+        .price { font-size: 1.1rem; font-weight: bold; color: var(--accent-color); white-space: nowrap; }
+        
+        .button-group { display: flex; gap: 8px; }
+
+        .btn-action {
+            padding: 8px 12px;
+            border-radius: 6px;
             text-decoration: none;
             font-weight: bold;
-            font-size: 0.85rem;
-            transition: background 0.3s;
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            transition: 0.3s;
         }
-        .btn:hover { background: #0056b3; }
+
+        .btn-sahibinden { background: #007bff; color: white; }
+        .btn-sahibinden:hover { background: #0056b3; }
+
+        .btn-whatsapp { background: var(--whatsapp-green); color: white; font-size: 1.1rem; padding: 8px 15px; }
+        .btn-whatsapp:hover { background: #1ebd59; transform: scale(1.1); }
 
         #urun-listesi { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; }
     </style>
@@ -167,6 +164,8 @@
     </div>
 
     <script>
+        const TEL_NO = "905368873931"; // WhatsApp için tel no (başında 90 ile)
+
         async function urunleriGetir() {
             try {
                 const response = await fetch('urunler.json');
@@ -187,12 +186,15 @@
                     const card = document.createElement('div');
                     card.className = 'card';
                     
-                    // Resimleri HTML içine ekleyelim
                     let resimHtml = '';
                     urun.resimler.forEach((resim, index) => {
                         resimHtml += `<img src="${resim}" class="gallery-img ${index === 0 ? 'active' : ''} ${isSold ? 'sold-overlay' : ''}">`;
                     });
                     
+                    // WhatsApp Mesaj İçeriği
+                    const wpMesaj = encodeURIComponent(`Merhaba, "${urun.baslik}" ilanı hakkında bilgi almak istiyorum.`);
+                    const wpLink = `https://wa.me/${TEL_NO}?text=${wpMesaj}`;
+
                     card.innerHTML = `
                         ${isSold ? '<div class="sold-badge">SATILDI</div>' : ''}
                         <div class="gallery-container">
@@ -207,35 +209,35 @@
                             <div class="price" style="color: ${isSold ? '#888' : '#64ffda'}">
                                 ${isSold ? '---' : urun.fiyat}
                             </div>
-                            <a href="${isSold ? '#' : urun.link}" 
-                               class="btn" 
-                               ${isSold ? 'style="background: #333; cursor: not-allowed;" onclick="return false;"' : ''}>
-                                 ${isSold ? 'SATILDI' : 'İNCELE / İLAN'}
-                            </a>
+                            <div class="button-group">
+                                ${!isSold ? `
+                                    <a href="${urun.link}" target="_blank" class="btn-action btn-sahibinden">
+                                        <i class="fa-solid fa-up-right-from-square"></i> İNCELE
+                                    </a>
+                                    <a href="${wpLink}" target="_blank" class="btn-action btn-whatsapp">
+                                        <i class="fa-brands fa-whatsapp"></i>
+                                    </a>
+                                ` : `
+                                    <span style="color:#888; font-weight:bold; font-size:0.8rem">STOKTA YOK</span>
+                                `}
+                            </div>
                         </div>
                     `;
                     liste.appendChild(card);
 
-                    // Eğer birden fazla resim varsa otomatik değiştirme başlat
-                    if (urun.resimler.length > 1) {
-                        startSlider(card);
-                    }
+                    if (urun.resimler.length > 1) startSlider(card);
                 });
-            } catch (e) {
-                console.error("Hata:", e);
-            }
+            } catch (e) { console.error("Hata:", e); }
         }
 
-        // Resimleri her 3 saniyede bir değiştiren fonksiyon
         function startSlider(card) {
             let images = card.querySelectorAll('.gallery-img');
             let currentIndex = 0;
-
             setInterval(() => {
                 images[currentIndex].classList.remove('active');
                 currentIndex = (currentIndex + 1) % images.length;
                 images[currentIndex].classList.add('active');
-            }, 3000); // 3 saniyede bir değişir
+            }, 3000);
         }
 
         window.onload = urunleriGetir;
