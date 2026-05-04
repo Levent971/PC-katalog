@@ -6,7 +6,8 @@
     "fiyat": "12.500 TL",
     "durum": "satildi", 
     "resimler": ["resim/xeon.jpg", "resim/xeon2.jpg"],
-    "link": "https://www.sahibinden.com/ilan-linkin"
+    "ilan_linki": "https://www.sahibinden.com/ilan/xxx",
+    "whatsapp_no": "905368873931"
   },
   {
     "id": 2,    
@@ -15,7 +16,8 @@
     "ozellikler": "Intel i5-11400F 2.60GHz | ASUS TUF RTX 2060 8GB | 16GB Corsair 3200MHz RAM | XPG 512GB M.2 NVMe SSD | MSI MAG FORGE 650W Kasa",
     "fiyat": "37000 TL",
     "resimler": ["resim/i5sistem.jpg"],
-    "link": "https://wa.me/905368873931",
+    "ilan_linki": "https://www.sahibinden.com/ilan/xxx",
+    "whatsapp_no": "905368873931",
     "durum": "aktif"
 },
 {
@@ -25,7 +27,8 @@
     "ozellikler": "Intel Pentium G3240 2 Çekirdekli İşlemci | ASUS ANAKART | 6GB RAM | Kingston HyperX Savage 240GB Sata SSD | Kasa PSU",
     "fiyat": "5500 TL",
     "resimler": ["resim/penti1.jpg"],
-    "link": "https://wa.me/905368873931",
+    "ilan_linki": "https://www.sahibinden.com/ilan/xxx",
+    "whatsapp_no": "905368873931",
     "durum": "aktif"
 },
 {
@@ -35,7 +38,8 @@
     "ozellikler": "AMD Athlon 3000G Apu İşlemci | 8GB RAM Asus Anakart | 8GB RAM | Kingston M.2 Sata 240GB | Strong Berry Siyah 3x 120MM Argb Matx Gaming 500W Kasa",
     "fiyat": "13750 TL",
     "resimler": ["resim/amd1.jpg", "resim/amd2.jpg"],
-    "link": "https://wa.me/905368873931",
+    "ilan_linki": "https://www.sahibinden.com/ilan/xxx",
+    "whatsapp_no": "905368873931",
     "durum": "aktif"
 }
 ]
