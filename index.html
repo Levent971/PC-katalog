@@ -41,15 +41,8 @@
             border-radius: 8px;
         }
 
-        .header-info {
-            text-align: left;
-        }
-
-        .header-info h1 {
-            margin: 0;
-            font-size: 2.5rem;
-            letter-spacing: 2px;
-        }
+        .header-info { text-align: left; }
+        .header-info h1 { margin: 0; font-size: 2.5rem; letter-spacing: 2px; }
 
         .contact-pill {
             display: inline-flex;
@@ -61,19 +54,8 @@
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
-        .services {
-            display: flex;
-            gap: 10px;
-            margin-top: 20px;
-            flex-wrap: wrap;
-        }
-
-        .service-tag {
-            background: #233554;
-            padding: 5px 15px;
-            border-radius: 4px;
-            font-size: 0.8rem;
-        }
+        .services { display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap; }
+        .service-tag { background: #233554; padding: 5px 15px; border-radius: 4px; font-size: 0.8rem; }
 
         .container {
             display: flex;
@@ -96,9 +78,7 @@
             flex-direction: column;
         }
 
-        .card:hover {
-            transform: translateY(-10px);
-        }
+        .card:hover { transform: translateY(-10px); }
 
         .sold-badge {
             position: absolute;
@@ -113,8 +93,10 @@
             font-size: 0.8rem;
         }
 
+        /* GALERİ ALANI */
         .gallery-container {
             height: 250px;
+            position: relative;
             overflow: hidden;
         }
 
@@ -122,36 +104,23 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
         }
 
-        .sold-overlay {
-            filter: grayscale(100%) brightness(50%);
+        .gallery-img.active {
+            opacity: 1;
         }
 
-        .content {
-            padding: 20px;
-            flex-grow: 1;
-        }
+        .sold-overlay { filter: grayscale(100%) brightness(50%); }
 
-        .title {
-            font-size: 1.25rem;
-            font-weight: bold;
-            margin-bottom: 10px;
-            color: white;
-        }
-
-        .description {
-            color: var(--accent-color);
-            font-size: 0.9rem;
-            margin-bottom: 8px;
-            font-weight: 500;
-        }
-
-        .specs {
-            font-size: 0.85rem;
-            line-height: 1.6;
-            color: #a8b2d1;
-        }
+        .content { padding: 20px; flex-grow: 1; }
+        .title { font-size: 1.25rem; font-weight: bold; margin-bottom: 10px; color: white; }
+        .description { color: var(--accent-color); font-size: 0.9rem; margin-bottom: 8px; font-weight: 500; }
+        .specs { font-size: 0.85rem; line-height: 1.6; color: #a8b2d1; }
 
         .footer {
             padding: 20px;
@@ -161,12 +130,7 @@
             background: rgba(0,0,0,0.2);
         }
 
-        .price {
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: var(--accent-color);
-        }
-
+        .price { font-size: 1.2rem; font-weight: bold; color: var(--accent-color); }
         .btn {
             background: #007bff;
             color: white;
@@ -177,17 +141,9 @@
             font-size: 0.85rem;
             transition: background 0.3s;
         }
+        .btn:hover { background: #0056b3; }
 
-        .btn:hover {
-            background: #0056b3;
-        }
-
-        #urun-listesi {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 30px;
-        }
+        #urun-listesi { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; }
     </style>
 </head>
 <body>
@@ -218,7 +174,6 @@
                 const liste = document.getElementById('urun-listesi');
                 liste.innerHTML = '';
 
-                // SIRALAMA: Aktifler başa, Satıldı olanlar sona
                 urunler.sort((a, b) => {
                     if (a.durum === "aktif" && b.durum === "satildi") return -1;
                     if (a.durum === "satildi" && b.durum === "aktif") return 1;
@@ -232,10 +187,16 @@
                     const card = document.createElement('div');
                     card.className = 'card';
                     
+                    // Resimleri HTML içine ekleyelim
+                    let resimHtml = '';
+                    urun.resimler.forEach((resim, index) => {
+                        resimHtml += `<img src="${resim}" class="gallery-img ${index === 0 ? 'active' : ''} ${isSold ? 'sold-overlay' : ''}">`;
+                    });
+                    
                     card.innerHTML = `
                         ${isSold ? '<div class="sold-badge">SATILDI</div>' : ''}
                         <div class="gallery-container">
-                            <img src="${urun.resimler[0]}" class="gallery-img ${isSold ? 'sold-overlay' : ''}">
+                            ${resimHtml}
                         </div>
                         <div class="content">
                             <div class="title">${urun.baslik}</div>
@@ -249,16 +210,34 @@
                             <a href="${isSold ? '#' : urun.link}" 
                                class="btn" 
                                ${isSold ? 'style="background: #333; cursor: not-allowed;" onclick="return false;"' : ''}>
-                                ${isSold ? 'SATILDI' : 'İNCELE / İLAN'}
+                                 ${isSold ? 'SATILDI' : 'İNCELE / İLAN'}
                             </a>
                         </div>
                     `;
                     liste.appendChild(card);
+
+                    // Eğer birden fazla resim varsa otomatik değiştirme başlat
+                    if (urun.resimler.length > 1) {
+                        startSlider(card);
+                    }
                 });
             } catch (e) {
                 console.error("Hata:", e);
             }
         }
+
+        // Resimleri her 3 saniyede bir değiştiren fonksiyon
+        function startSlider(card) {
+            let images = card.querySelectorAll('.gallery-img');
+            let currentIndex = 0;
+
+            setInterval(() => {
+                images[currentIndex].classList.remove('active');
+                currentIndex = (currentIndex + 1) % images.length;
+                images[currentIndex].classList.add('active');
+            }, 3000); // 3 saniyede bir değişir
+        }
+
         window.onload = urunleriGetir;
     </script>
 </body>
