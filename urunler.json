@@ -1,6 +1,6 @@
 [
   {
-    "id": 2,
+    "id": 1,
     "baslik": "Xeon Performans Sistemi",
     "ozellikler": "Intel Xeon E5-2680 v4 | 32GB RAM | GTX 1050 Ti",
     "fiyat": "12.500 TL",
@@ -9,11 +9,32 @@
     "link": "https://www.sahibinden.com/ilan-linkin"
   },
   {
+    "id": 2,    
     "baslik": "i5 Performans & Gaming Sistemi",
     "aciklama": "Orta Düzey Oyuncu Bilgisayarı bu bilgisayarda kasa psu işlemci fanı klavye + mouse set sıfır monitör ise tercihe bırakılmıştır",
     "ozellikler": "Intel i5-11400F 2.60GHz | ASUS TUF RTX 2060 8GB | 16GB Corsair 3200MHz RAM | XPG 512GB M.2 NVMe SSD | MSI MAG FORGE 650W Kasa",
-    "fiyat": "Fiyat Sorunuz",
+    "fiyat": "37000 TL",
     "resimler": ["resim/i5sistem.jpg"],
+    "link": "https://wa.me/905368873931",
+    "durum": "aktif"
+},
+{
+    "id": 3,
+    "baslik": "İntel Giriş",
+    "aciklama": "Giriş Web Ofis Ve Okul Bilgisayarı Sadece Kasa Olup klavye+mouse Ve Monitör tercihe bırakılmıştır",
+    "ozellikler": "Intel Pentium G3240 2 Çekirdekli İşlemci | ASUS ANAKART | 6GB RAM | Kingston HyperX Savage 240GB Sata SSD | Kasa PSU",
+    "fiyat": "5500 TL",
+    "resimler": ["resim/penti1.jpg"],
+    "link": "https://wa.me/905368873931",
+    "durum": "aktif"
+},
+{
+    "id": 4,
+    "baslik": "AMD Athlon 3000G Giriş Oyun Sistemi",
+    "aciklama": "Giriş Oyunları Bilgisayarı bu bilgisayarda kasa psu işlemci fanı Sıfır klavye+mouse ve monitör tercihe bırakılmıştır",
+    "ozellikler": "AMD Athlon 3000G Apu İşlemci | 8GB RAM Asus Anakart | 8GB RAM | Kingston M.2 Sata 240GB | Strong Berry Siyah 3x 120MM Argb Matx Gaming 500W Kasa",
+    "fiyat": "13750 TL",
+    "resimler": ["resim/amd1.jpg", "resim/amd2.jpg"],
     "link": "https://wa.me/905368873931",
     "durum": "aktif"
 }
