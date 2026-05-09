@@ -29,7 +29,7 @@
     "resimler": ["resim/penti1.jpg"],
     "ilan_linki": "https://www.sahibinden.com/ilan/xxx",
     "whatsapp_no": "905368873931",
-    "durum": "aktif"
+    "durum": "satildi"
 },
 {
     "id": 4,
@@ -38,6 +38,17 @@
     "ozellikler": "AMD Athlon 3000G Apu İşlemci | 8GB RAM Asus Anakart | 8GB RAM | Kingston M.2 Sata 240GB | Strong Berry Siyah 3x 120MM Argb Matx Gaming 500W Kasa",
     "fiyat": "13750 TL",
     "resimler": ["resim/amd1.jpg", "resim/amd2.jpg"],
+    "ilan_linki": "https://www.sahibinden.com/ilan/xxx",
+    "whatsapp_no": "905368873931",
+    "durum": "aktif"
+},
+{
+    "id": 5,
+    "baslik": "Everest KMX-99 Usb Gökkuşağı Zemin Aydınlatmalı Q Oyuncu Klavye Mouse Set",
+    "aciklama": "Klavye + Mouse Set Ürün Sıfırdır",
+    "ozellikler": "Everest KMX-99 Siyah Usb Gökkuşağı Zemin Aydınlatmalı Q Klavye + Mouse Set Rainbow Rengarenk Zemin Aydınlatması Sayesinde Gece Ve Loş Ortamda Rahatça Oyun Oynayabilirsiniz",
+    "fiyat": "750 TL",
+    "resimler": ["resim/eve1.jpg", "resim/eve2.jpg", "resim/eve3.jpg", "resim/eve4.jpg"],
     "ilan_linki": "https://www.sahibinden.com/ilan/xxx",
     "whatsapp_no": "905368873931",
     "durum": "aktif"
